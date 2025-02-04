@@ -1312,7 +1312,7 @@ static __inline__ __m128i __DEFAULT_FN_ATTRS128 _mm_cvt2ph_bf8(__m128h __A,
 /// Merging mask \a __U is used to determine if given element should be taken
 /// from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15
 /// 	IF __U[i]
 /// 		IF i < 8
@@ -1397,7 +1397,7 @@ _mm_maskz_cvt2ph_bf8(__mmask16 __U, __m128h __A, __m128h __B) {
 /// Convert two 256-bit vectors, \a __A and \a __B, containing packed FP16
 /// floating-point elements to a 256-bit vector containing E5M2 FP8 elements.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 32 
 /// 	IF i < 16 
 /// 		dst.bf8[i] := convert_fp16_to_bf8(__B.fp16[i])
@@ -1432,7 +1432,7 @@ _mm256_cvt2ph_bf8(__m256h __A, __m256h __B) {
 /// Merging mask \a __U is used to determine if given element should be taken
 /// from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 32 
 /// 	IF __U[i]
 /// 		IF i < 16 
@@ -1476,7 +1476,7 @@ static __inline__ __m256i __DEFAULT_FN_ATTRS256 _mm256_mask_cvt2ph_bf8(
 /// Merging mask \a __U is used to determine if given element should be zeroed
 /// instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 32 
 /// 	IF __U[i]
 /// 		dst.bf8[i] := 0
@@ -1597,7 +1597,7 @@ _mm_mask_cvts2ph_bf8(__m128i __W, __mmask16 __U, __m128h __A, __m128h __B) {
 /// Zeroing mask \a __U is used to determine if given element should be zeroed
 /// instead. Resulting elements are saturated in case of overflow.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 16 
 /// 	IF __U[i]
 /// 		IF i < 8
@@ -1639,7 +1639,7 @@ _mm_maskz_cvts2ph_bf8(__mmask16 __U, __m128h __A, __m128h __B) {
 /// floating-point elements to a 256-bit vector containing E5M2 FP8 elements.
 /// Resulting elements are saturated in case of overflow.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 32 
 /// 	IF i < 16 
 /// 		dst.bf8[i] := convert_fp16_to_bf8(__B.fp16[i])
@@ -1674,7 +1674,7 @@ _mm256_cvts2ph_bf8(__m256h __A, __m256h __B) {
 /// Merging mask \a __U is used to determine if given element should be taken
 /// from \a __W instead. Resulting elements are saturated in case of overflow.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 32 
 /// 	IF __U[i]
 /// 		IF i < 16 
@@ -1718,7 +1718,7 @@ static __inline__ __m256i __DEFAULT_FN_ATTRS256 _mm256_mask_cvts2ph_bf8(
 /// Merging mask \a __U is used to determine if given element should be zeroed
 /// instead. Resulting elements are saturated in case of overflow.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 32 
 /// 	IF __U[i]
 /// 		dst.bf8[i] := 0
@@ -1759,7 +1759,7 @@ _mm256_maskz_cvts2ph_bf8(__mmask32 __U, __m256h __A, __m256h __B) {
 /// Convert two 128-bit vectors, \a __A and \a __B, containing packed FP16
 /// floating-point elements to a 128-bit vector containing E4M3 FP8 elements.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 16 
 /// 	IF i < 8
 /// 		dst.hf8[i] := convert_fp16_to_hf8(__B.fp16[i])
@@ -1794,7 +1794,7 @@ static __inline__ __m128i __DEFAULT_FN_ATTRS128 _mm_cvt2ph_hf8(__m128h __A,
 /// Merging mask \a __U is used to determine if given element should be taken
 /// from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 16 
 /// 	IF __U[i]
 /// 		IF i < 8
@@ -1838,7 +1838,7 @@ _mm_mask_cvt2ph_hf8(__m128i __W, __mmask16 __U, __m128h __A, __m128h __B) {
 /// Zeroing mask \a __U is used to determine if given element should be zeroed
 /// instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 16 
 /// 	IF __U[i]
 /// 		IF i < 8
@@ -1879,7 +1879,7 @@ _mm_maskz_cvt2ph_hf8(__mmask16 __U, __m128h __A, __m128h __B) {
 /// Convert two 256-bit vectors, \a __A and \a __B, containing packed FP16
 /// floating-point elements to a 256-bit vector containing E4M3 FP8 elements.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 32 
 /// 	IF i < 16 
 /// 		dst.hf8[i] := convert_fp16_to_hf8(__B.fp16[i])
@@ -1914,7 +1914,7 @@ _mm256_cvt2ph_hf8(__m256h __A, __m256h __B) {
 /// Merging mask \a __U is used to determine if given element should be taken
 /// from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 32 
 /// 	IF __U[i]
 /// 		IF i < 16 
@@ -1958,7 +1958,7 @@ static __inline__ __m256i __DEFAULT_FN_ATTRS256 _mm256_mask_cvt2ph_hf8(
 /// Merging mask \a __U is used to determine if given element should be zeroed
 /// instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 32 
 /// 	IF __U[i]
 /// 		dst.hf8[i] := 0
@@ -2000,7 +2000,7 @@ _mm256_maskz_cvt2ph_hf8(__mmask32 __U, __m256h __A, __m256h __B) {
 /// floating-point elements to a 128-bit vector containing E4M3 FP8 elements.
 /// Resulting elements are saturated in case of overflow.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 16 
 /// 	IF i < 8
 /// 		dst.hf8[i] := convert_fp16_to_hf8(__B.fp16[i])
@@ -2035,7 +2035,7 @@ _mm_cvts2ph_hf8(__m128h __A, __m128h __B) {
 /// Merging mask \a __U is used to determine if given element should be taken
 /// from \a __W instead. Resulting elements are saturated in case of overflow.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 16 
 /// 	IF __U[i]
 /// 		IF i < 8
@@ -2079,7 +2079,7 @@ _mm_mask_cvts2ph_hf8(__m128i __W, __mmask16 __U, __m128h __A, __m128h __B) {
 /// Zeroing mask \a __U is used to determine if given element should be zeroed
 /// instead. Resulting elements are saturated in case of overflow.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 16 
 /// 	IF __U[i]
 /// 		IF i < 8
@@ -2121,7 +2121,7 @@ _mm_maskz_cvts2ph_hf8(__mmask16 __U, __m128h __A, __m128h __B) {
 /// floating-point elements to a 256-bit vector containing E4M3 FP8 elements.
 /// Resulting elements are saturated in case of overflow.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 32 
 /// 	IF i < 16 
 /// 		dst.hf8[i] := convert_fp16_to_hf8(__B.fp16[i])
@@ -2156,7 +2156,7 @@ _mm256_cvts2ph_hf8(__m256h __A, __m256h __B) {
 /// Merging mask \a __U is used to determine if given element should be taken
 /// from \a __W instead. Resulting elements are saturated in case of overflow.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 32 
 /// 	IF __U[i]
 /// 		IF i < 16 
@@ -2200,7 +2200,7 @@ static __inline__ __m256i __DEFAULT_FN_ATTRS256 _mm256_mask_cvts2ph_hf8(
 /// Merging mask \a __U is used to determine if given element should be zeroed
 /// instead. Resulting elements are saturated in case of overflow.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 32 
 /// 	IF __U[i]
 /// 		dst.hf8[i] := 0
@@ -2241,7 +2241,7 @@ _mm256_maskz_cvts2ph_hf8(__mmask32 __U, __m256h __A, __m256h __B) {
 /// Convert 128-bit vector \a __A, containing packed FP8 E4M3 floating-point
 /// elements to a 128-bit vector containing FP16 elements. The conversion is exact.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	dst.fp16[i] := convert_hf8_to_fp16(__B.hf8[i])
 /// ENDFOR
@@ -2268,7 +2268,7 @@ static __inline__ __m128h __DEFAULT_FN_ATTRS128 _mm_cvthf8(__m128i __A) {
 /// exact. Merging mask \a __U is used to determine if given element should be
 /// taken from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	IF __U[i]
 /// 		dst.fp16[i] := convert_hf8_to_fp16(__A.hf8[i])
@@ -2305,7 +2305,7 @@ _mm_mask_cvthf8(__m128h __W, __mmask8 __U, __m128i __A) {
 /// exact. Zeroing mask \a __U is used to determine if given element should be
 /// zeroed instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	IF __U[i]
 /// 		dst.fp16[i] := convert_hf8_to_fp16(__B.hf8[i])
@@ -2338,7 +2338,7 @@ _mm_maskz_cvthf8(__mmask8 __U, __m128i __A) {
 /// Convert 256-bit vector \a __A, containing packed FP8 E4M3 floating-point
 /// elements to a 256-bit vector containing FP16 elements. The conversion is exact.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15
 /// 	dst.fp16[i] := convert_hf8_to_fp16(__B.hf8[i])
 /// ENDFOR
@@ -2366,7 +2366,7 @@ _mm256_cvthf8(__m128i __A) {
 /// exact. Merging mask \a __U is used to determine if given element should be
 /// taken from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15 
 /// 	IF __U[i]
 /// 		dst.fp16[i] := convert_hf8_to_fp16(__A.hf8[i])
@@ -2403,7 +2403,7 @@ _mm256_mask_cvthf8(__m256h __W, __mmask16 __U, __m128i __A) {
 /// exact. Zeroing mask \a __U is used to determine if given element should be
 /// zeroed instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15 
 /// 	IF __U[i]
 /// 		dst.fp16[i] := convert_hf8_to_fp16(__B.hf8[i])
@@ -2437,7 +2437,7 @@ _mm256_maskz_cvthf8(__mmask16 __U, __m128i __A) {
 /// to a 128-bit vector containing E5M2 FP8 elements. Upper elements of
 /// resulting vector are zeroed.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	dst.bf8[i] := convert_fp16_to_bf8(__A.fp16[i])
 /// ENDFOR
@@ -2464,7 +2464,7 @@ static __inline__ __m128i __DEFAULT_FN_ATTRS128 _mm_cvtph_bf8(__m128h __A) {
 /// resulting vector are zeroed. Merging mask \a __U is used to determine if
 /// given element should be taken from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	IF __U[i]
 /// 		dst.bf8[i] := convert_fp16_to_bf8(__A.fp16[i])
@@ -2502,7 +2502,7 @@ _mm_mask_cvtph_bf8(__m128i __W, __mmask8 __U, __m128h __A) {
 /// resulting vector are zeroed. Zeroing mask \a __U is used to determine if
 /// given element should be zeroed instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	IF __U[i]
 /// 		dst.bf8[i] := 0
@@ -2536,7 +2536,7 @@ _mm_maskz_cvtph_bf8(__mmask8 __U, __m128h __A) {
 /// Convert 256-bit vector \a __A containing packed FP16 floating-point elements
 /// to a 128-bit vector containing E5M2 FP8 elements.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15
 /// 	dst.bf8[i] := convert_fp16_to_bf8(__A.fp16[i])
 /// ENDFOR
@@ -2563,7 +2563,7 @@ _mm256_cvtph_bf8(__m256h __A) {
 /// to a 128-bit vector containing E5M2 FP8 elements. Merging mask \a __U is
 /// used to determine if given element should be taken from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15
 /// 	IF __U[i]
 /// 		dst.bf8[i] := convert_fp16_to_bf8(__A.fp16[i])
@@ -2599,7 +2599,7 @@ _mm256_mask_cvtph_bf8(__m128i __W, __mmask16 __U, __m256h __A) {
 /// to a 128-bit vector containing E5M2 FP8 elements. Zeroing mask \a __U is
 /// used to determine if given element should be zeroed instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15
 /// 	IF __U[i]
 /// 		dst.bf8[i] := convert_fp16_to_bf8(__A.fp16[i])
@@ -2633,7 +2633,7 @@ _mm256_maskz_cvtph_bf8(__mmask16 __U, __m256h __A) {
 /// to a 128-bit vector containing E5M2 FP8 elements. Upper elements of
 /// resulting vector are zeroed. Results are saturated.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	dst.bf8[i] := convert_fp16_to_bf8(__A.fp16[i])
 /// ENDFOR
@@ -2660,7 +2660,7 @@ static __inline__ __m128i __DEFAULT_FN_ATTRS128 _mm_cvtsph_bf8(__m128h __A) {
 /// resulting vector are zeroed. Results are saturated. Merging mask \a __U is
 /// used to determine if given element should be taken from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	IF __U[i]
 /// 		dst.bf8[i] := convert_fp16_to_bf8(__A.fp16[i])
@@ -2697,7 +2697,7 @@ _mm_mask_cvtsph_bf8(__m128i __W, __mmask8 __U, __m128h __A) {
 /// resulting vector are zeroed. Results are saturated. Zeroing mask \a __U is
 /// used to determine if given element should be zeroed instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	IF __U[i]
 /// 		dst.bf8[i] := convert_fp16_to_bf8(__A.fp16[i])
@@ -2730,7 +2730,7 @@ _mm_maskz_cvtsph_bf8(__mmask8 __U, __m128h __A) {
 /// Convert 256-bit vector \a __A containing packed FP16 floating-point elements
 /// to a 128-bit vector containing E5M2 FP8 elements. Results are saturated.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15
 /// 	dst.bf8[i] := convert_fp16_to_bf8(__A.fp16[i])
 /// ENDFOR
@@ -2758,7 +2758,7 @@ _mm256_cvtsph_bf8(__m256h __A) {
 /// Merging mask \a __U is used to determine if given element should be taken
 /// from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15
 /// 	IF __U[i]
 /// 		dst.bf8[i] := convert_fp16_to_bf8(__A.fp16[i])
@@ -2795,7 +2795,7 @@ _mm256_mask_cvtsph_bf8(__m128i __W, __mmask16 __U, __m256h __A) {
 /// Zeroing mask \a __U is used to determine if given element should be zeroed
 /// instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15 
 /// 	IF __U[i]
 /// 		dst.bf8[i] := convert_fp16_to_bf8(__A.fp16[i])
@@ -2829,7 +2829,7 @@ _mm256_maskz_cvtsph_bf8(__mmask16 __U, __m256h __A) {
 /// to a 128-bit vector containing E5M2 FP8 elements. Upper elements of
 /// resulting vector are zeroed.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	dst.hf8[i] := convert_fp16_to_hf8(__A.fp16[i])
 /// ENDFOR
@@ -2856,7 +2856,7 @@ static __inline__ __m128i __DEFAULT_FN_ATTRS128 _mm_cvtph_hf8(__m128h __A) {
 /// resulting vector are zeroed. Merging mask \a __U is used to determine if
 /// given element should be taken from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	IF __U[i]
 /// 		dst.hf8[i] := convert_fp16_to_hf8(__A.fp16[i])
@@ -2894,7 +2894,7 @@ _mm_mask_cvtph_hf8(__m128i __W, __mmask8 __U, __m128h __A) {
 /// resulting vector are zeroed. Zeroing mask \a __U is used to determine if
 /// given element should be zeroed instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	IF __U[i]
 /// 		dst.hf8[i] := convert_fp16_to_hf8(__A.fp16[i])
@@ -2928,7 +2928,7 @@ _mm_maskz_cvtph_hf8(__mmask8 __U, __m128h __A) {
 /// Convert 256-bit vector \a __A containing packed FP16 floating-point elements
 /// to a 128-bit vector containing E4M3 FP8 elements.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15
 /// 	dst.hf8[i] := convert_fp16_to_hf8(__A.fp16[i])
 /// ENDFOR
@@ -2955,7 +2955,7 @@ _mm256_cvtph_hf8(__m256h __A) {
 /// to a 128-bit vector containing E4M3 FP8 elements. Merging mask \a __U is
 /// used to determine if given element should be taken from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15
 /// 	IF __U[i]
 /// 		dst.hf8[i] := convert_fp16_to_hf8(__A.fp16[i])
@@ -2991,7 +2991,7 @@ _mm256_mask_cvtph_hf8(__m128i __W, __mmask16 __U, __m256h __A) {
 /// to a 128-bit vector containing E4M3 FP8 elements. Zeroing mask \a __U is
 /// used to determine if given element should be zeroed instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15
 /// 	IF __U[i]
 /// 		dst.hf8[i] := convert_fp16_to_hf8(__A.fp16[i])
@@ -3025,7 +3025,7 @@ _mm256_maskz_cvtph_hf8(__mmask16 __U, __m256h __A) {
 /// to a 128-bit vector containing E4M3 FP8 elements. Upper elements of
 /// resulting vector are zeroed. Results are saturated.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	dst.hf8[i] := convert_fp16_to_hf8(__A.fp16[i])
 /// ENDFOR
@@ -3052,7 +3052,7 @@ static __inline__ __m128i __DEFAULT_FN_ATTRS128 _mm_cvtsph_hf8(__m128h __A) {
 /// resulting vector are zeroed. Results are saturated. Merging mask \a __U is
 /// used to determine if given element should be taken from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	IF __U[i]
 /// 		dst.hf8[i] := convert_fp16_to_hf8(__A.fp16[i])
@@ -3089,7 +3089,7 @@ _mm_mask_cvtsph_hf8(__m128i __W, __mmask8 __U, __m128h __A) {
 /// resulting vector are zeroed. Results are saturated. Zeroing mask \a __U is
 /// used to determine if given element should be zeroed instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	IF __U[i]
 /// 		dst.hf8[i] := convert_fp16_to_hf8(__A.fp16[i])
@@ -3122,7 +3122,7 @@ _mm_maskz_cvtsph_hf8(__mmask8 __U, __m128h __A) {
 /// Convert 256-bit vector \a __A containing packed FP16 floating-point elements
 /// to a 128-bit vector containing E4M3 FP8 elements. Results are saturated.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15
 /// 	dst.hf8[i] := convert_fp16_to_hf8(__A.fp16[i])
 /// ENDFOR
@@ -3150,7 +3150,7 @@ _mm256_cvtsph_hf8(__m256h __A) {
 /// Merging mask \a __U is used to determine if given element should be taken
 /// from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15
 /// 	IF __U[i]
 /// 		dst.hf8[i] := convert_fp16_to_hf8(__A.fp16[i])
@@ -3187,7 +3187,7 @@ _mm256_mask_cvtsph_hf8(__m128i __W, __mmask16 __U, __m256h __A) {
 /// Zeroing mask \a __U is used to determine if given element should be zeroed
 /// instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15 
 /// 	IF __U[i]
 /// 		dst.hf8[i] := convert_fp16_to_hf8(__A.fp16[i])
@@ -3220,7 +3220,7 @@ _mm256_maskz_cvtsph_hf8(__mmask16 __U, __m256h __A) {
 /// Convert 128-bit vector \a __A, containing packed FP8 E5M2 floating-point
 /// elements to a 128-bit vector containing FP16 elements. The conversion is exact.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	dst.fp16[i] := convert_bf8_to_fp16(__B.bf8[i])
 /// ENDFOR
@@ -3244,7 +3244,7 @@ static __inline__ __m128h __DEFAULT_FN_ATTRS128 _mm_cvtbf8_ph(__m128i __A) {
 /// exact. Merging mask \a __U is used to determine if given element should be
 /// taken from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	IF __U[i]
 /// 		dst.fp16[i] := convert_bf8_to_fp16(__B.bf8[i])
@@ -3279,7 +3279,7 @@ _mm_mask_cvtbf8_ph(__m128h __W, __mmask8 __U, __m128i __A) {
 /// exact. Zeroing mask \a __U is used to determine if given element should be
 /// zeroed instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 7
 /// 	IF __U[i]
 /// 		dst.fp16[i] := convert_bf8_to_fp16(__B.bf8[i])
@@ -3309,7 +3309,7 @@ _mm_maskz_cvtbf8_ph(__mmask8 __U, __m128i __A) {
 /// Convert 256-bit vector \a __A, containing packed FP8 E4M3 floating-point
 /// elements to a 256-bit vector containing FP16 elements. The conversion is exact.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15
 /// 	dst.fp16[i] := convert_bf8_to_fp16(__B.bf8[i])
 /// ENDFOR
@@ -3333,7 +3333,7 @@ static __inline__ __m256h __DEFAULT_FN_ATTRS256 _mm256_cvtbf8_ph(__m128i __A) {
 /// exact. Merging mask \a __U is used to determine if given element should be
 /// taken from \a __W instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15 
 /// 	IF __U[i]
 /// 		dst.fp16[i] := convert_bf8_to_fp16(__B.bf8[i])
@@ -3368,7 +3368,7 @@ _mm256_mask_cvtbf8_ph(__m256h __W, __mmask16 __U, __m128i __A) {
 /// exact. Zeroing mask \a __U is used to determine if given element should be
 /// zeroed instead.
 ///
-/// \code{.operation]
+/// \code{.operation}
 /// FOR i := 0 to 15 
 /// 	IF __U[i]
 /// 		dst.fp16[i] := convert_bf8_to_fp16(__B.bf8[i])
