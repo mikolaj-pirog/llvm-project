@@ -3222,7 +3222,7 @@ _mm256_maskz_cvtsph_hf8(__mmask16 __U, __m256h __A) {
 ///
 /// \code{.operation}
 /// FOR i := 0 to 7
-/// 	dst.fp16[i] := convert_bf8_to_fp16(__B.bf8[i])
+/// 	dst.fp16[i] := convert_bf8_to_fp16(__A.bf8[i])
 /// ENDFOR
 /// \endcode
 ///
@@ -3247,7 +3247,7 @@ static __inline__ __m128h __DEFAULT_FN_ATTRS128 _mm_cvtbf8_ph(__m128i __A) {
 /// \code{.operation}
 /// FOR i := 0 to 7
 /// 	IF __U[i]
-/// 		dst.fp16[i] := convert_bf8_to_fp16(__B.bf8[i])
+/// 		dst.fp16[i] := convert_bf8_to_fp16(__A.bf8[i])
 /// 	ELSE
 /// 		dst.fp16[i] := __W.fp16[i]
 /// 	FI
@@ -3282,7 +3282,7 @@ _mm_mask_cvtbf8_ph(__m128h __W, __mmask8 __U, __m128i __A) {
 /// \code{.operation}
 /// FOR i := 0 to 7
 /// 	IF __U[i]
-/// 		dst.fp16[i] := convert_bf8_to_fp16(__B.bf8[i])
+/// 		dst.fp16[i] := convert_bf8_to_fp16(__A.bf8[i])
 /// 	ELSE
 /// 		dst.fp16[i] := 0
 /// 	FI
@@ -3311,7 +3311,7 @@ _mm_maskz_cvtbf8_ph(__mmask8 __U, __m128i __A) {
 ///
 /// \code{.operation}
 /// FOR i := 0 to 15
-/// 	dst.fp16[i] := convert_bf8_to_fp16(__B.bf8[i])
+/// 	dst.fp16[i] := convert_bf8_to_fp16(__A.bf8[i])
 /// ENDFOR
 /// \endcode
 ///
@@ -3336,7 +3336,7 @@ static __inline__ __m256h __DEFAULT_FN_ATTRS256 _mm256_cvtbf8_ph(__m128i __A) {
 /// \code{.operation}
 /// FOR i := 0 to 15 
 /// 	IF __U[i]
-/// 		dst.fp16[i] := convert_bf8_to_fp16(__B.bf8[i])
+/// 		dst.fp16[i] := convert_bf8_to_fp16(__A.bf8[i])
 /// 	ELSE
 /// 		dst.fp16[i] := __W.fp16[i]
 /// 	FI
@@ -3371,7 +3371,7 @@ _mm256_mask_cvtbf8_ph(__m256h __W, __mmask16 __U, __m128i __A) {
 /// \code{.operation}
 /// FOR i := 0 to 15 
 /// 	IF __U[i]
-/// 		dst.fp16[i] := convert_bf8_to_fp16(__B.bf8[i])
+/// 		dst.fp16[i] := convert_bf8_to_fp16(__A.bf8[i])
 /// 	ELSE
 /// 		dst.fp16[i] := 0
 /// 	FI
