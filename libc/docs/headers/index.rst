@@ -8,7 +8,9 @@ Implementation Status
    arpa/inet
    assert
    complex
+   cpio
    ctype
+   endian
    errno
    fenv
    float
@@ -34,6 +36,7 @@ Implementation Status
    threads
    time
    uchar
+   unistd
    wchar
    wctype
 ..
