@@ -3666,9 +3666,9 @@ Parser::ParseCXXAmbiguousParenExpression(ParenParseOption &ExprType,
         return ExprError();
 
       TypeResult Ty = Actions.ActOnTypeName(DeclaratorInfo);
-      return ParseCompoundLiteralExpression(Ty.get(),
-                                            Tracker.getOpenLocation(),
-                                            Tracker.getCloseLocation());
+      return ParseCompoundLiteralExpression(Ty.get(), Tracker.getOpenLocation(),
+                                            Tracker.getCloseLocation(),
+                                            DeclSpec::SCS::SCS_unspecified);
     }
 
     // We parsed '(' type-id ')' and the thing after it wasn't a '{'.

@@ -114,11 +114,13 @@ enum class CastParseKind { AnyCastExpr = 0, UnaryExprOnly, PrimaryExprOnly };
 
 /// ParenParseOption - Control what ParseParenExpression will parse.
 enum class ParenParseOption {
-  SimpleExpr,      // Only parse '(' expression ')'
-  FoldExpr,        // Also allow fold-expression <anything>
-  CompoundStmt,    // Also allow '(' compound-statement ')'
-  CompoundLiteral, // Also allow '(' type-name ')' '{' ... '}'
-  CastExpr         // Also allow '(' type-name ')' <anything>
+  SimpleExpr,             // Only parse '(' expression ')'
+  FoldExpr,               // Also allow fold-expression <anything>
+  CompoundStmt,           // Also allow '(' compound-statement ')'
+  CompoundLiteral,        // Also allow '(' type-name ')' '{' ... '}'
+  CompoundLiteralStorage, // Also allow '(' storage-class-specifiers type-name
+                          // ')' '{' ... '}'
+  CastExpr                // Also allow '(' type-name ')' <anything>
 };
 
 /// In a call to ParseParenExpression, are the initial parentheses part of an
@@ -2017,6 +2019,8 @@ private:
   /// isTypeSpecifierQualifier - Return true if the current token could be the
   /// start of a specifier-qualifier-list.
   bool isTypeSpecifierQualifier();
+
+  bool isStorageClassSpecifier(bool &AmbigousType);
 
   /// isKnownToBeTypeSpecifier - Return true if we know that the specified token
   /// is definitely a type-specifier.  Return false if it isn't part of a type
@@ -4241,7 +4245,8 @@ private:
   /// \endverbatim
   ExprResult ParseCompoundLiteralExpression(ParsedType Ty,
                                             SourceLocation LParenLoc,
-                                            SourceLocation RParenLoc);
+                                            SourceLocation RParenLoc,
+                                            DeclSpec::SCS Storage);
 
   /// ParseGenericSelectionExpression - Parse a C11 generic-selection
   /// [C11 6.5.1.1].

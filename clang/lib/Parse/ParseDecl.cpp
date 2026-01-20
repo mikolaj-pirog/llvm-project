@@ -5557,6 +5557,33 @@ bool Parser::isKnownToBeTypeSpecifier(const Token &Tok) const {
   }
 }
 
+bool Parser::isStorageClassSpecifier(bool &AmbigousType) {
+  auto Tok_Cur = Tok;
+  switch (Tok.getKind()) {
+  case tok::kw_static:
+  case tok::kw_register:
+  case tok::kw_thread_local:
+    break;
+  case tok::kw_typedef:
+  case tok::kw_extern:
+  case tok::kw___private_extern__:
+  case tok::kw_auto:
+  case tok::kw___auto_type:
+  case tok::kw___thread:
+  case tok::kw__Thread_local:
+    Diag(Tok, diag::err_invalid_storage_for_compound_literal);
+    return false;
+  default:
+    return isTypeIdInParens(AmbigousType);
+  }
+
+  ConsumeToken();
+  auto Res = isTypeIdInParens(AmbigousType);
+  UnconsumeToken(Tok_Cur);
+
+  return Res;
+}
+
 bool Parser::isTypeSpecifierQualifier() {
   switch (Tok.getKind()) {
   default: return false;

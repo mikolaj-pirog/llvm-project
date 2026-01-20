@@ -7210,9 +7210,9 @@ ExprResult Sema::BuildResolvedCallExpr(Expr *Fn, NamedDecl *NDecl,
   return CheckForImmediateInvocation(MaybeBindToTemporary(TheCall), FDecl);
 }
 
-ExprResult
-Sema::ActOnCompoundLiteral(SourceLocation LParenLoc, ParsedType Ty,
-                           SourceLocation RParenLoc, Expr *InitExpr) {
+ExprResult Sema::ActOnCompoundLiteral(SourceLocation LParenLoc, ParsedType Ty,
+                                      SourceLocation RParenLoc, Expr *InitExpr,
+                                      DeclSpec::SCS Storage) {
   assert(Ty && "ActOnCompoundLiteral(): missing type");
   assert(InitExpr && "ActOnCompoundLiteral(): missing expression");
 
@@ -7221,12 +7221,15 @@ Sema::ActOnCompoundLiteral(SourceLocation LParenLoc, ParsedType Ty,
   if (!TInfo)
     TInfo = Context.getTrivialTypeSourceInfo(literalType);
 
-  return BuildCompoundLiteralExpr(LParenLoc, TInfo, RParenLoc, InitExpr);
+  return BuildCompoundLiteralExpr(LParenLoc, TInfo, RParenLoc, InitExpr,
+                                  Storage);
 }
 
-ExprResult
-Sema::BuildCompoundLiteralExpr(SourceLocation LParenLoc, TypeSourceInfo *TInfo,
-                               SourceLocation RParenLoc, Expr *LiteralExpr) {
+ExprResult Sema::BuildCompoundLiteralExpr(SourceLocation LParenLoc,
+                                          TypeSourceInfo *TInfo,
+                                          SourceLocation RParenLoc,
+                                          Expr *LiteralExpr,
+                                          DeclSpec::SCS Storage) {
   QualType literalType = TInfo->getType();
 
   if (literalType->isArrayType()) {

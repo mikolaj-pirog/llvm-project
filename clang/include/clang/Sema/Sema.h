@@ -6779,6 +6779,8 @@ public:
     /// suffice, e.g., in a default function argument.
     Decl *ManglingContextDecl;
 
+    Decl *StorageDecl;
+
     /// Declaration for initializer if one is currently being
     /// parsed. Used when an expression has a possibly unreachable
     /// diagnostic to reference the declaration as a whole.
@@ -7496,12 +7498,13 @@ public:
   ExprResult MaybeConvertParenListExprToParenExpr(Scope *S, Expr *ME);
 
   ExprResult ActOnCompoundLiteral(SourceLocation LParenLoc, ParsedType Ty,
-                                  SourceLocation RParenLoc, Expr *InitExpr);
+                                  SourceLocation RParenLoc, Expr *InitExpr,
+                                  DeclSpec::SCS Storage);
 
-  ExprResult BuildCompoundLiteralExpr(SourceLocation LParenLoc,
-                                      TypeSourceInfo *TInfo,
-                                      SourceLocation RParenLoc,
-                                      Expr *LiteralExpr);
+  ExprResult BuildCompoundLiteralExpr(
+      SourceLocation LParenLoc, TypeSourceInfo *TInfo, SourceLocation RParenLoc,
+      Expr *LiteralExpr,
+      DeclSpec::SCS Storage = DeclSpec::SCS::SCS_unspecified);
 
   ExprResult ActOnInitList(SourceLocation LBraceLoc, MultiExprArg InitArgList,
                            SourceLocation RBraceLoc);
