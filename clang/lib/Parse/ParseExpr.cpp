@@ -2724,7 +2724,7 @@ Parser::ParseParenExpression(ParenParseOption &ExprType, bool StopIfCastExpr,
                                                BridgeKeywordLoc, Ty.get(),
                                                RParenLoc, SubExpr.get());
   } else if (ExprType >= ParenParseOption::CompoundLiteral &&
-             isTypeIdInParens(isAmbiguousTypeId)) {
+             isStorageClassSpecifier(isAmbiguousTypeId)) {
 
     // Otherwise, this is a compound literal expression or cast expression.
 
@@ -2740,12 +2740,13 @@ Parser::ParseParenExpression(ParenParseOption &ExprType, bool StopIfCastExpr,
       return res;
     }
 
-    // Parse the type declarator.
     DeclSpec DS(AttrFactory);
-    ParseSpecifierQualifierList(DS);
+    ParsedTemplateInfo TI;
+    ParseDeclarationSpecifiers(DS, TI);
     Declarator DeclaratorInfo(DS, ParsedAttributesView::none(),
                               DeclaratorContext::TypeName);
     ParseDeclarator(DeclaratorInfo);
+    auto Storage = DS.getStorageClassSpec();
 
     // If our type is followed by an identifier and either ':' or ']', then
     // this is probably an Objective-C message send where the leading '[' is
@@ -2773,7 +2774,8 @@ Parser::ParseParenExpression(ParenParseOption &ExprType, bool StopIfCastExpr,
           InMessageExpressionRAIIObject InMessage(*this, false);
           Ty = Actions.ActOnTypeName(DeclaratorInfo);
         }
-        return ParseCompoundLiteralExpression(Ty.get(), OpenLoc, RParenLoc);
+        return ParseCompoundLiteralExpression(Ty.get(), OpenLoc, RParenLoc,
+                                              Storage);
       }
 
       if (ParenBehavior == ParenExprKind::Unknown && Tok.is(tok::l_paren)) {
@@ -2947,17 +2949,18 @@ Parser::ParseParenExpression(ParenParseOption &ExprType, bool StopIfCastExpr,
   return Result;
 }
 
-ExprResult
-Parser::ParseCompoundLiteralExpression(ParsedType Ty,
-                                       SourceLocation LParenLoc,
-                                       SourceLocation RParenLoc) {
+ExprResult Parser::ParseCompoundLiteralExpression(ParsedType Ty,
+                                                  SourceLocation LParenLoc,
+                                                  SourceLocation RParenLoc,
+                                                  DeclSpec::SCS Storage) {
   assert(Tok.is(tok::l_brace) && "Not a compound literal!");
   if (!getLangOpts().C99)   // Compound literals don't exist in C90.
     Diag(LParenLoc, diag::ext_c99_compound_literal);
   PreferredType.enterTypeCast(Tok.getLocation(), Ty.get());
   ExprResult Result = ParseInitializer();
   if (!Result.isInvalid() && Ty)
-    return Actions.ActOnCompoundLiteral(LParenLoc, Ty, RParenLoc, Result.get());
+    return Actions.ActOnCompoundLiteral(LParenLoc, Ty, RParenLoc, Result.get(),
+                                        Storage);
   return Result;
 }
 

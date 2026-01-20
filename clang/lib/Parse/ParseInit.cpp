@@ -593,6 +593,8 @@ ExprResult Parser::ParseInitializer(Decl *DeclForInitializer) {
         VD && VD->isFileVarDecl() &&
         (!VD->getType()->isReferenceType() || VD->isConstexpr()))
       Actions.ExprEvalContexts.back().DeclForInitializer = VD;
+
+    Actions.ExprEvalContexts.back().StorageDecl = DeclForInitializer;
   }
 
   ExprResult init;
